@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Switcher</title>
+    <!-- Add Poppins font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif; /* Changed to Poppins */
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', sans-serif; /* Changed to Poppins */
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', sans-serif; /* Changed to Poppins */
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif; /* Changed to Poppins */
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        #themeDisplay {
+            margin-top: 20px;
+            font-size: 1.3em;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', sans-serif; /* Changed to Poppins */
+        }
+
+        /* Light Theme Styles */
+        .light-theme {
+            background-color: white;
+            color: black;
+        }
+
+        .light-theme button {
+            background-color: #333;
+            color: white;
+        }
+
+        .light-theme button:hover {
+            background-color: #555;
+        }
+
+        /* Dark Theme Styles */
+        .dark-theme {
+            background-color: black;
+            color: white;
+        }
+
+        .dark-theme button {
+            background-color: white;
+            color: black;
+        }
+
+        .dark-theme button:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body class="light-theme">
+    <div class="container">
+        <h1 id="heading">Welcome to Theme Switcher</h1>
+        <p id="paragraph">
+            This is a demonstration of dynamic HTML and CSS manipulation using JavaScript. 
+            Click the button below to switch between light and dark themes and watch the 
+            page transform instantly!
+        </p>
+        <button id="themeButton" onclick="toggleTheme()">Change Theme</button>
+        <div id="themeDisplay">Current Theme: Light Mode</div>
+    </div>
+
+    <script>
+        // Variable to track current theme state
+        let isLightTheme = true;
+
+        // Function to toggle between themes
+        function toggleTheme() {
+            // Access DOM elements
+            const body = document.body;
+            const heading = document.getElementById('heading');
+            const paragraph = document.getElementById('paragraph');
+            const themeDisplay = document.getElementById('themeDisplay');
+
+            if (isLightTheme) {
+                // Switch to Dark Theme
+                body.className = 'dark-theme';
+                body.style.backgroundColor = 'black';
+                body.style.color = 'white';
+                
+                // Modify heading and paragraph styles (removed font family changes)
+                heading.style.color = 'white';
+                
+                paragraph.style.color = 'white';
+                
+                // Update theme display
+                themeDisplay.textContent = 'Current Theme: Dark Mode';
+                themeDisplay.style.color = 'white';
+                
+                isLightTheme = false;
+            } else {
+                // Switch to Light Theme
+                body.className = 'light-theme';
+                body.style.backgroundColor = 'white';
+                body.style.color = 'black';
+                
+                // Modify heading and paragraph styles (removed font family changes)
+                heading.style.color = 'black';
+                
+                paragraph.style.color = 'black';
+                
+                // Update theme display
+                themeDisplay.textContent = 'Current Theme: Light Mode';
+                themeDisplay.style.color = 'black';
+                
+                isLightTheme = true;
+            }
+        }
+    </script>
+</body>
+</html>
